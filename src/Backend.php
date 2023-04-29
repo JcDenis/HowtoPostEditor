@@ -52,7 +52,7 @@ class Backend extends dcNsProcess
         dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
             'howtoPostEditor',
             dcCore::app()->adminurl->get('admin.plugin.howtoPostEditor'),
-            '',
+            dcPage::getPF('howtoPostEditor/icon.svg'),
             preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.howtoPostEditor')) . '/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->isSuperAdmin()
         );
