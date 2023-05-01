@@ -1,10 +1,10 @@
 # README
 
-[![Release](https://img.shields.io/github/v/release/JcDenis/howtoPostEditor)](https://github.com/JcDenis/howtoPostEditor/releases)
-[![Date](https://img.shields.io/github/release-date/JcDenis/howtoPostEditor)](https://github.com/JcDenis/howtoPostEditor/releases)
-[![Issues](https://img.shields.io/github/issues/JcDenis/howtoPostEditor)](https://github.com/JcDenis/howtoPostEditor/issues)
+[![Release](https://img.shields.io/github/v/release/JcDenis/HowtoPostEditor)](https://github.com/JcDenis/HowtoPostEditor/releases)
+[![Date](https://img.shields.io/github/release-date/JcDenis/HowtoPostEditor)](https://github.com/JcDenis/HowtoPostEditor/releases)
+[![Issues](https://img.shields.io/github/issues/JcDenis/HowtoPostEditor)](https://github.com/JcDenis/HowtoPostEditor/issues)
 [![Dotclear](https://img.shields.io/badge/dotclear-v2.26-blue.svg)](https://fr.dotclear.org/download)
-[![License](https://img.shields.io/github/license/JcDenis/howtoPostEditor)](https://github.com/JcDenis/howtoPostEditor/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/JcDenis/HowtoPostEditor)](https://github.com/JcDenis/HowtoPostEditor/blob/master/LICENSE)
 
 ## WHAT IT IS ?
 

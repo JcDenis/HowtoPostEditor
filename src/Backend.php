@@ -1,6 +1,6 @@
 <?php
 /**
- * @brief howtoPostEditor, a plugin for Dotclear 2
+ * @brief HowtoPostEditor, a plugin for Dotclear 2
  *
  * @package Dotclear
  * @subpackage Plugin
@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\howtoPostEditor;
+namespace Dotclear\Plugin\HowtoPostEditor;
 
 use ArrayObject;
 use dcAdmin;
@@ -50,10 +50,10 @@ class Backend extends dcNsProcess
 
         // add backend sidebar menu to go to manage page
         dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->addItem(
-            'howtoPostEditor',
-            dcCore::app()->adminurl->get('admin.plugin.howtoPostEditor'),
-            dcPage::getPF('howtoPostEditor/icon.svg'),
-            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.howtoPostEditor')) . '/', $_SERVER['REQUEST_URI']),
+            My::name(),
+            dcCore::app()->adminurl->get('admin.plugin.' . My::id()),
+            dcPage::getPF(My::id() . '/icon.svg'),
+            preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.' . My::id())) . '/', $_SERVER['REQUEST_URI']),
             dcCore::app()->auth->isSuperAdmin()
         );
 
@@ -64,13 +64,14 @@ class Backend extends dcNsProcess
                     return '';
                 }
 
-                return dcPage::jsModuleLoad('howtoPostEditor/js/backend.js');
+                return dcPage::jsModuleLoad(My::id() . '/js/backend.js');
             },
 
             // add our textarea form ID to post editor
             'adminPostEditorTags' => function (string $editor, string $context, ArrayObject $alt_tags, string $format): void {
+                // there is an existsing postEditor on this page, so we add our textarea to it
                 if ($context == 'blog_desc') {
-                    $alt_tags->append('#howtoPostEditor');
+                    $alt_tags->append('#textarea_HowtoPostEditor');
                 }
             },
 
@@ -78,11 +79,11 @@ class Backend extends dcNsProcess
             'adminBlogPreferencesFormV2' => function (dcSettings $blog_settings): void {
                 echo
                 (new Div())->class('fieldset')->items([
-                    (new Text('h4', 'How to add post editor'))->id('howtoPostEditor_title'),
+                    (new Text('h4', My::name()))->id(My::id()),
                     (new Div())->items([
                         (new Para())->items([
-                            (new Label('Textarea:', Label::OUTSIDE_LABEL_BEFORE))->for('howtoPostEditor'),
-                            (new Textarea('howtoPostEditor', ''))->cols(60)->rows(5)->lang($blog_settings->get('system')->get('lang'))->spellcheck(true),
+                            (new Label('Textarea:', Label::OUTSIDE_LABEL_BEFORE))->for('textarea_HowtoPostEditor'),
+                            (new Textarea('textarea_HowtoPostEditor', ''))->cols(60)->rows(5)->lang($blog_settings->get('system')->get('lang'))->spellcheck(true),
                         ]),
                     ]),
                 ])->render();

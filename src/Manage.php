@@ -1,6 +1,6 @@
 <?php
 /**
- * @brief howtoPostEditor, a plugin for Dotclear 2
+ * @brief HowtoPostEditor, a plugin for Dotclear 2
  *
  * @package Dotclear
  * @subpackage Plugin
@@ -12,7 +12,7 @@
  */
 declare(strict_types=1);
 
-namespace Dotclear\Plugin\howtoPostEditor;
+namespace Dotclear\Plugin\HowtoPostEditor;
 
 use dcCore;
 use dcNsProcess;
@@ -66,28 +66,28 @@ class Manage extends dcNsProcess
         // open our manage page
         dcPage::openModule(
             // page title
-            'howtoPostEditor',
+            My::name(),
             // register our form into post editor
-            dcCore::app()->callBehavior('adminPostEditor', $editor['xhtml'], 'demo_context', ['#howtoPostEditor'], 'xhtml') .
+            dcCore::app()->callBehavior('adminPostEditor', $editor['xhtml'], 'demo_context', ['#textarea_HowtoPostEditor'], 'xhtml') .
             // add HTML header to load our js file
-            dcPage::jsModuleLoad('howtoPostEditor/js/backend.js')
+            dcPage::jsModuleLoad(My::id() . '/js/backend.js')
         );
 
         // add page header
         echo
         dcPage::breadcrumb([
-            __('Plugins')            => '',
-            'How to add post editor' => '',
+            __('Plugins') => '',
+            My::name()    => '',
         ]) .
         // display dotclear notices
         dcPage::notices() .
 
         // build ou textarea form
-        (new Form('howtoPostEditor_form'))->method('post')->action(dcCore::app()->adminurl->get('admin.plugin.howtoPostEditor'))->fields([
+        (new Form('my_form'))->method('post')->action(dcCore::app()->adminurl->get('admin.plugin.' . My::id()))->fields([
             (new Div())->class('fieldset')->items([
                 (new Para())->class('area')->items([
-                    (new Label('Textarea:', Label::OUTSIDE_LABEL_BEFORE))->for('howtoPostEditor'),
-                    (new Textarea('howtoPostEditor', ''))->cols(40)->rows(10),
+                    (new Label('Textarea:', Label::OUTSIDE_LABEL_BEFORE))->for('textarea_HowtoPostEditor'),
+                    (new Textarea('textarea_HowtoPostEditor', ''))->cols(40)->rows(10),
                 ]),
             ]),
         ])->render();

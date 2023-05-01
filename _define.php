@@ -1,6 +1,6 @@
 <?php
 /**
- * @brief howtoPostEditor, a plugin for Dotclear 2
+ * @brief HowtoPostEditor, a plugin for Dotclear 2
  *
  * @package Dotclear
  * @subpackage Plugin
@@ -15,10 +15,10 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-    'howtoPostEditor',
+    'Howto PostEditor',
     'How to add post editor',
     'Jean-Christian Denis',
-    '1.0',
+    '1.1',
     [
         'requires'   => [['core', '2.26']],
         'type'       => 'plugin',
@@ -26,7 +26,7 @@ $this->registerModule(
         'details'    => 'https://github.com/JcDenis/' . basename(__DIR__),
         'repository' => 'https://raw.githubusercontent.com/JcDenis/' . basename(__DIR__) . '/master/dcstore.xml',
         'settings'   => [
-            'blog' => '#params.howtoPostEditor',
+            'blog' => '#params.' . basename(__DIR__),
         ],
     ]
 );

@@ -3,9 +3,9 @@
 
 $(() => {
   if (typeof jsToolBar === 'function') {
-    $('#howtoPostEditor').each(function () {
-      const howtoPostEditor = new jsToolBar(this);
-      howtoPostEditor.draw('xhtml');
+    $('#textarea_HowtoPostEditor').each(function () {
+      const HowtoPostEditorJsToolBar = new jsToolBar(this);
+      HowtoPostEditorJsToolBar.draw('xhtml');
     });
   }
 });
